@@ -22,7 +22,7 @@ import kotlinx.coroutines.test.setMain
 //Also notice that we're implementing TestCoroutineScope to which you are passing a test coroutine dispatcher
 //By implementing TestCoroutineScope, this gives MainCoroutineRule the ability to control coroutine timeing
 //using the test disptacher. Rememeber that a coroutine scope controls the lifecycle of the coroutine.
-// You're going to see an example of this in the next video.
+// You're going to see an example of this in the next video.Dep
 
 @ExperimentalCoroutinesApi
 class MainCoroutineRule(val dispatcher: TestDispatcher = TestCoroutineDispatcher()):
