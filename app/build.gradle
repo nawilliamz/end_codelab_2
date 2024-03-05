@@ -92,6 +92,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
 
     androidTestImplementation 'com.linkedin.dexmaker:dexmaker-mockito-inline:2.21.0'
     debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"

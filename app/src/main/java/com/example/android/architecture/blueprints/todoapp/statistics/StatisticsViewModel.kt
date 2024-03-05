@@ -52,6 +52,14 @@ class StatisticsViewModel(private val tasksRepository: TasksRepository) : ViewMo
         it?.activeTasksPercent ?: 0f }
     val completedTasksPercent: LiveData<Float> = stats.map { it?.completedTasksPercent ?: 0f }
     val dataLoading: LiveData<Boolean> = _dataLoading
+
+    //**These variables are solely set up for testing purposes. It retrieves our tasks from the repository that is used in
+    //the view model constructor and allows us to set the result of that "download" as either an Error a Success.
+    //it is a Result<List<Task>>
+    //This line of code sets our Result object returned from refreshing our repository (Result containt a List of tasks)
+    //to type Error (which simulates a problem downloading our task from the repository).
+    //Both of these variables error and empty should be set to an Error state when I refresh and there's
+    //an error
     val error: LiveData<Boolean> = tasks.map { it is Error }
     val empty: LiveData<Boolean> = tasks.map { (it as? Success)?.data.isNullOrEmpty() }
 

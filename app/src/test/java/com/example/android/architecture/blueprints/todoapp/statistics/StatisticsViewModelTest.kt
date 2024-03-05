@@ -91,4 +91,27 @@ class StatisticsViewModelTest {
 
 
     }
+
+    @Test
+    fun loadStatisticsWhenTasksAreUnavailable_callErrorToDisplay() {
+        //Make the repository return errors
+        tasksRepository.setReturnError(true)
+
+            //Now call the subject under test and perform the action that we are testing
+        statisticsViewModel.refresh()
+
+        //Then an error message is shown
+        //So this asserts when my lists of tasks returned from the repository (which we know is a fake repository)
+        //that our StatisticsViewModel processes the
+        //So essentially this test is testing that, if the task refresh (retrieval from repository) results in
+        //an empty list of tasks, that the getTask() and getTasks() method return the correct result based on
+        //if whether or not any tasks are present in the repository. In this case, there are none (since we we have
+        //not yet added any).
+        assertThat(statisticsViewModel.empty.getOrAwaitValue(), `is`(true))
+        assertThat(statisticsViewModel.error.getOrAwaitValue(), `is`(true))
+
+
+
+    }
+
 }
